@@ -44,7 +44,8 @@ fun CustomNavGraph(
             ) {
                 SignInScreen(
                     navigateUp = mainActions.navigateUp,
-                    signInViewModel = hiltViewModel()
+                    signInViewModel = hiltViewModel(),
+                    navigateHome = mainActions.navigateToMain
                 )
             }
             composable(
@@ -53,7 +54,8 @@ fun CustomNavGraph(
             ) {
                 SignUpScreen(
                     navigateUp = mainActions.navigateUp,
-                    signUpViewModel = hiltViewModel()
+                    signUpViewModel = hiltViewModel(),
+                    navigateHome = mainActions.navigateToMain
                 )
             }
         }
@@ -62,7 +64,10 @@ fun CustomNavGraph(
             route = MainRoute.Main.path,
             deepLinks = MainRoute.Main.path.generateDeepLinks()
         ) {
-            HomeScreen()
+            HomeScreen(
+                homeViewModel = hiltViewModel(),
+                navigateAuthScreen = authActions.navigateToAuth
+            )
         }
     }
 }

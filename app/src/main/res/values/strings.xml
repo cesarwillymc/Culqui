@@ -31,4 +31,9 @@
     <string name="lbl_create_account">"Looks like you don't have and account. Let's create a new account for: "</string>
     <string name="lbl_email_example">jane.doe@gmail.com</string>
     <string name="lbl_name">Name</string>
+    <string name="desc_error_snackbar">Something happened</string>
+    <string name="lbl_error">ERROR</string>
+    <string name="lbl_home">Home</string>
+    <string name="lbl_onclick_logout">Onclick logout</string>
+    <string name="desc_description">Hello I\'m Cesar Canaza.</string>
 </resources>

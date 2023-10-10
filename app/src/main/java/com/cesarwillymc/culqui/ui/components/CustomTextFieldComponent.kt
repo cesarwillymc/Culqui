@@ -74,12 +74,10 @@ fun CustomTextField(
             )
             .border(
                 width = dimensionResource(id = R.dimen.OneDp),
-                color = if (isFocused && !isError) {
-                    MaterialTheme.colorScheme.primary
-                } else if (!isFocused && isError) {
-                    MaterialTheme.colorScheme.inversePrimary
-                } else {
-                    Color.Red
+                color = when {
+                    query.isNotBlank() && !isError ->  MaterialTheme.colorScheme.primary
+                    query.isBlank()  ->   MaterialTheme.colorScheme.inversePrimary
+                    else -> Color.Red
                 },
                 RoundedCornerShape(dimensionResource(id = R.dimen.Small150))
             ),
@@ -140,7 +138,7 @@ fun CustomTextField(
                             },
                             modifier = Modifier
                                 .align(
-                                    if (isFocused) {
+                                    if (isFocused || query.isNotBlank()) {
                                         Alignment.TopStart
                                     } else {
                                         Alignment.CenterStart

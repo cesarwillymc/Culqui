@@ -40,8 +40,7 @@ fun ColumnScope.SignInContent(
         query = passwordField.text.collectAsState().value,
         onQueryChange = passwordField::setText,
         hintText = stringResource(R.string.lbl_password),
-        isError = isErrorPassword,
-        isTypePassword = true,
+        isTypePassword = true
     )
     CustomPrimaryButton(
         title = stringResource(R.string.lbl_continue),

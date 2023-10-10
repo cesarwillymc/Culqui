@@ -10,6 +10,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.rememberNavController
+import com.cesarwillymc.culqui.ui.components.CustomFullScreenLoading
 import com.cesarwillymc.culqui.ui.navigation.graph.CustomNavGraph
 import com.cesarwillymc.culqui.ui.theme.CulquiTheme
 import dagger.hilt.android.AndroidEntryPoint
@@ -25,6 +26,7 @@ class MainActivity : ComponentActivity() {
                 val startDestination by mainViewModel.startDestination.collectAsState()
                 val navController = rememberNavController()
 
+                CustomFullScreenLoading(startDestination.isNullOrBlank())
                 if (!startDestination.isNullOrBlank()) {
                     Box(modifier = Modifier.fillMaxSize()) {
                         CustomNavGraph(

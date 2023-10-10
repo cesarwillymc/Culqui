@@ -5,11 +5,13 @@ import androidx.lifecycle.viewModelScope
 import com.cesarwillymc.culqui.domain.usecase.GetLoggedStateUseCase
 import com.cesarwillymc.culqui.ui.navigation.route.AuthRoute
 import com.cesarwillymc.culqui.ui.navigation.route.MainRoute
+import com.cesarwillymc.culqui.util.constants.DELAY_700
 import com.cesarwillymc.culqui.util.extension.orEmpty
 import com.cesarwillymc.culqui.util.state.dataOrNull
 import com.cesarwillymc.culqui.util.state.isSuccess
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
@@ -27,6 +29,7 @@ class MainViewModel @Inject constructor(
 
     fun loadMainRoute() {
         viewModelScope.launch {
+            delay(DELAY_700)
             isLogged(Unit).let { result ->
                 if(result.isSuccess && result.dataOrNull().orEmpty()){
                     _startDestination.update { MainRoute.Main.path }

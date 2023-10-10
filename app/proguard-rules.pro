@@ -103,5 +103,6 @@
 
 -keepnames @dagger.hilt.android.lifecycle.HiltViewModel class * extends androidx.lifecycle.ViewModel
 
-
+-keep class com.cesarwillymc.culqui.data.sources.auth.entities.** { *; }
+-keep class com.cesarwillymc.culqui.domain.usecase.entities.** { *; }
 
