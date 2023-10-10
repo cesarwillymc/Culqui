@@ -21,4 +21,3 @@ const val LOG_DOMAIN = "ERROR_DOMAIN"
 
 const val FORMAT_HOUR = "hh:mm a"
 const val FORMAT_TIME_ZONE = "America/Chicago"
-

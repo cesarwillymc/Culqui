@@ -45,7 +45,6 @@ fun TermsAndPrivatePolicy(
                 }
         }
     )
-
 }
 
 @Composable
@@ -60,7 +59,7 @@ fun getAnnotatedString() = buildAnnotatedString {
             color = MaterialTheme.colorScheme.primary,
             fontSize = TextUnit(dimensionResource(id = R.dimen.TextNormal).value, TextUnitType.Sp),
             fontWeight = FontWeight.Bold
-        ),
+        )
     ) {
         append(stringResource(R.string.til_terms_service))
     }

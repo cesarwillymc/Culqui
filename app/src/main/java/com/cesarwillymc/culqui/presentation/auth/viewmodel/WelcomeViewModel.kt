@@ -13,5 +13,5 @@ import javax.inject.Inject
  */
 @HiltViewModel
 class WelcomeViewModel @Inject constructor() : ViewModel() {
-    val emailText  = EmailField()
+    val emailText = EmailField()
 }

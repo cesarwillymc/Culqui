@@ -59,7 +59,6 @@ fun CustomTextField(
     val keyboardController = LocalTextInputService.current
     var isHideText by remember { mutableStateOf(true) }
 
-
     BasicTextField(
         value = query,
         modifier = Modifier
@@ -75,8 +74,8 @@ fun CustomTextField(
             .border(
                 width = dimensionResource(id = R.dimen.OneDp),
                 color = when {
-                    query.isNotBlank() && !isError ->  MaterialTheme.colorScheme.primary
-                    query.isBlank()  ->   MaterialTheme.colorScheme.inversePrimary
+                    query.isNotBlank() && !isError -> MaterialTheme.colorScheme.primary
+                    query.isBlank() -> MaterialTheme.colorScheme.inversePrimary
                     else -> Color.Red
                 },
                 RoundedCornerShape(dimensionResource(id = R.dimen.Small150))
@@ -102,21 +101,23 @@ fun CustomTextField(
         decorationBox = { innerTextField ->
             ConstraintLayout {
                 val (lblText, trailingIcon) = createRefs()
-                Box(modifier = Modifier
-                    .constrainAs(lblText) {
-                        top.linkTo(parent.top)
-                        bottom.linkTo(parent.bottom)
-                        start.linkTo(parent.start)
-                        end.linkTo(
-                            if (isTypePassword) {
-                                trailingIcon.start
-                            } else {
-                                parent.end
-                            }
-                        )
-                        width = Dimension.fillToConstraints
-                        height = Dimension.fillToConstraints
-                    }) {
+                Box(
+                    modifier = Modifier
+                        .constrainAs(lblText) {
+                            top.linkTo(parent.top)
+                            bottom.linkTo(parent.bottom)
+                            start.linkTo(parent.start)
+                            end.linkTo(
+                                if (isTypePassword) {
+                                    trailingIcon.start
+                                } else {
+                                    parent.end
+                                }
+                            )
+                            width = Dimension.fillToConstraints
+                            height = Dimension.fillToConstraints
+                        }
+                ) {
                     Box(
                         modifier = Modifier
                             .padding(dimensionResource(id = R.dimen.Small100))
@@ -126,7 +127,6 @@ fun CustomTextField(
                     ) {
                         innerTextField()
                     }
-
 
                     if (hintText.isNotEmpty()) {
                         Text(
@@ -149,13 +149,11 @@ fun CustomTextField(
                     }
                 }
                 if (isTypePassword) {
-
                     Text(
                         text = if (isHideText) {
                             stringResource(R.string.lbl_view)
                         } else {
                             stringResource(R.string.lbl_hide)
-
                         },
                         modifier = Modifier
                             .constrainAs(trailingIcon) {
@@ -170,10 +168,8 @@ fun CustomTextField(
                                 isHideText = !isHideText
                             }
                     )
-
                 }
             }
-
         }
     )
 }

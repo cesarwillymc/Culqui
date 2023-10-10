@@ -9,4 +9,3 @@ package com.cesarwillymc.culqui.data.sources.auth.entities
 data class AuthResponse(
     val token: String
 )
-

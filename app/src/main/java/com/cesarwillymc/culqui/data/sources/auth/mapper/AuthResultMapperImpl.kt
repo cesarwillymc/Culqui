@@ -14,5 +14,4 @@ class AuthResultMapperImpl @Inject constructor() : AuthResultMapper {
     override fun fromResponseToDomain(info: AuthResponse): Auth {
         return Auth(info.token)
     }
-
 }

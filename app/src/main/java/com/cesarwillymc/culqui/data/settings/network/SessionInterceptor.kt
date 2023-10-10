@@ -1,6 +1,5 @@
 package com.cesarwillymc.culqui.data.settings.network
 
-import com.cesarwillymc.culqui.BuildConfig
 import com.cesarwillymc.culqui.data.sources.preferences.PreferencesDao
 import com.cesarwillymc.culqui.util.extension.orEmpty
 import com.cesarwillymc.culqui.util.state.dataOrNull
