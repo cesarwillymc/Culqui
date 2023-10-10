@@ -1,0 +1,71 @@
+package com.cesarwillymc.culqui.presentation.auth
+
+import androidx.compose.material3.SnackbarDuration
+import androidx.compose.material3.SnackbarHostState
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
+import com.cesarwillymc.culqui.R
+import com.cesarwillymc.culqui.presentation.auth.component.AuthScaffold
+import com.cesarwillymc.culqui.presentation.auth.component.SignUpContent
+import com.cesarwillymc.culqui.presentation.auth.viewmodel.SignUpViewModel
+import com.cesarwillymc.culqui.ui.components.CustomFullScreenLoading
+import com.cesarwillymc.culqui.ui.components.CustomSnackbar
+
+/**
+ * Created by Cesar Canaza on 10/10/23.
+ * cesarwilly.mc@gmail.com
+ *
+ * IOWA, United States.
+ */
+@Composable
+fun SignUpScreen(
+    navigateUp: () -> Unit,
+    navigateHome: () -> Unit,
+    signUpViewModel: SignUpViewModel
+) {
+    val passwordField = signUpViewModel.passwordText
+    val emailField = signUpViewModel.emailText
+    val authUiState by signUpViewModel.authUiState.collectAsState()
+    val context = LocalContext.current
+    val snackbarHostState = remember { SnackbarHostState() }
+    CustomFullScreenLoading(authUiState.isLoading)
+    AuthScaffold(
+        title = stringResource(id = R.string.til_sign_up),
+        isBackEnabled = true,
+        onNavigateUp = navigateUp
+    ) {
+        SignUpContent(
+            emailField = emailField,
+            passwordField = passwordField,
+            onContinueEmail = signUpViewModel::register,
+            onPolicyClicked = {
+                // todo
+            },
+            onTermsClicked = {
+                // todo
+            }
+        )
+    }
+    CustomSnackbar(snackbarHostState = snackbarHostState)
+    LaunchedEffect(authUiState) {
+        if (authUiState.isError) {
+
+            snackbarHostState.showSnackbar(
+                message = authUiState.errorMessage
+                    ?: context.getString(R.string.desc_error_snackbar),
+                actionLabel = context.getString(R.string.lbl_error),
+                duration = SnackbarDuration.Long,
+                withDismissAction = true
+            )
+        }
+        if (authUiState.isSuccess) {
+            navigateHome()
+        }
+    }
+
+}
