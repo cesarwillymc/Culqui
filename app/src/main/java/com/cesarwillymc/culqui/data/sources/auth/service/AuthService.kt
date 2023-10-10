@@ -23,7 +23,7 @@ interface AuthService {
     ): AuthResponse
 
     private companion object {
-        const val LOGIN ="login"
-        const val REGISTER ="register"
+        const val LOGIN = "login"
+        const val REGISTER = "register"
     }
 }

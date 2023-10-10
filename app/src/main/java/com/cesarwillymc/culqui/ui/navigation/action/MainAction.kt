@@ -1,7 +1,6 @@
 package com.cesarwillymc.culqui.ui.navigation.action
 
 import androidx.navigation.NavHostController
-import com.cesarwillymc.culqui.ui.navigation.route.AuthRoute
 import com.cesarwillymc.culqui.ui.navigation.route.MainRoute
 
 class MainAction(navController: NavHostController) {

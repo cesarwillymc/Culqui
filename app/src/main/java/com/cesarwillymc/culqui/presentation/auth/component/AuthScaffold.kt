@@ -55,7 +55,6 @@ fun AuthScaffold(
                 .padding(dimensionResource(id = R.dimen.Normal100))
                 .fillMaxSize()
         ) {
-
             if (isBackEnabled) {
                 Icon(
                     painter = painterResource(id = R.drawable.ic_arrow_back),
@@ -83,7 +82,6 @@ fun AuthScaffold(
             }
         }
     }
-
 }
 
 @Composable

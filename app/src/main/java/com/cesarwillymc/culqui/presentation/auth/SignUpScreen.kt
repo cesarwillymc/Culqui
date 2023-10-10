@@ -54,7 +54,6 @@ fun SignUpScreen(
     CustomSnackbar(snackbarHostState = snackbarHostState)
     LaunchedEffect(authUiState) {
         if (authUiState.isError) {
-
             snackbarHostState.showSnackbar(
                 message = authUiState.errorMessage
                     ?: context.getString(R.string.desc_error_snackbar),
@@ -67,5 +66,4 @@ fun SignUpScreen(
             navigateHome()
         }
     }
-
 }

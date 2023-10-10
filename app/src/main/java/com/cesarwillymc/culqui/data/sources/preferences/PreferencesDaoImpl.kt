@@ -44,6 +44,4 @@ class PreferencesDaoImpl @Inject constructor(
         }
         return Result.Success(Unit)
     }
-
-
 }

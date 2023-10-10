@@ -25,19 +25,19 @@ class AuthRepository @Inject constructor(
     override suspend fun signIn(email: String, password: String): Result<Auth> {
         return remoteDataSource.signIn(AuthRequest(email, password))
             .map(resultMapper::fromResponseToDomain).also {
-            if (it.isSuccess) {
-                sharedDao.saveToken(it.dataOrNull()?.token.orEmpty())
+                if (it.isSuccess) {
+                    sharedDao.saveToken(it.dataOrNull()?.token.orEmpty())
+                }
             }
-        }
     }
 
     override suspend fun signUp(email: String, password: String): Result<Auth> {
         return remoteDataSource.signUp(AuthRequest(email, password))
             .map(resultMapper::fromResponseToDomain).also {
-            if (it.isSuccess) {
-                sharedDao.saveToken(it.dataOrNull()?.token.orEmpty())
+                if (it.isSuccess) {
+                    sharedDao.saveToken(it.dataOrNull()?.token.orEmpty())
+                }
             }
-        }
     }
 
     override suspend fun saveToken(token: String): Result<Unit> {

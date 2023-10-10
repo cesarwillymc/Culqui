@@ -7,10 +7,10 @@ import com.cesarwillymc.culqui.presentation.auth.state.AuthUiState
 import com.cesarwillymc.culqui.util.state.isError
 import com.cesarwillymc.culqui.util.state.isSuccess
 import dagger.hilt.android.lifecycle.HiltViewModel
-import javax.inject.Inject
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 /**
  * Created by Cesar Canaza on 10/10/23.

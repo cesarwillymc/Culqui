@@ -10,11 +10,11 @@ import com.cesarwillymc.culqui.util.extension.orEmpty
 import com.cesarwillymc.culqui.util.state.dataOrNull
 import com.cesarwillymc.culqui.util.state.isSuccess
 import dagger.hilt.android.lifecycle.HiltViewModel
-import javax.inject.Inject
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 @HiltViewModel
 class MainViewModel @Inject constructor(
@@ -31,9 +31,9 @@ class MainViewModel @Inject constructor(
         viewModelScope.launch {
             delay(DELAY_700)
             isLogged(Unit).let { result ->
-                if(result.isSuccess && result.dataOrNull().orEmpty()){
+                if (result.isSuccess && result.dataOrNull().orEmpty()) {
                     _startDestination.update { MainRoute.Main.path }
-                }else{
+                } else {
                     _startDestination.update { AuthRoute.Auth.path }
                 }
             }

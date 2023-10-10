@@ -42,7 +42,7 @@ fun ColumnScope.SignUpContent(
         onQueryChange = emailField::setText,
         keyboardType = KeyboardType.Email,
         hintText = stringResource(R.string.lbl_email),
-        isError =  isErrorEmailField
+        isError = isErrorEmailField
     )
     CustomTextField(
         query = passwordField.text.collectAsState().value,
@@ -71,7 +71,7 @@ fun SignUpContentPreview() {
         title = stringResource(R.string.title_welcome),
         isBackEnabled = true,
         content = {
-            SignUpContent(EmailField(), PasswordField(),{},{},{})
+            SignUpContent(EmailField(), PasswordField(), {}, {}, {})
         }
     )
 }

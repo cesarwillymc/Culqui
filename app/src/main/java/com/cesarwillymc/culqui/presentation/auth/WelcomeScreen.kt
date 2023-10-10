@@ -22,7 +22,7 @@ fun WelcomeScreen(
     val emailField = welcomeViewModel.emailText
     AuthScaffold(
         title = stringResource(id = R.string.title_welcome),
-        isBackEnabled = false,
+        isBackEnabled = false
     ) {
         WelcomeContent(
             emailField = emailField,

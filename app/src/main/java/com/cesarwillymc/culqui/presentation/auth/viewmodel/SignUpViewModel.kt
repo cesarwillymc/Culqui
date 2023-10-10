@@ -12,10 +12,10 @@ import com.cesarwillymc.culqui.util.state.getError
 import com.cesarwillymc.culqui.util.state.isError
 import com.cesarwillymc.culqui.util.state.isSuccess
 import dagger.hilt.android.lifecycle.HiltViewModel
-import javax.inject.Inject
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 /**
  * Created by Cesar Canaza on 10/10/23.
@@ -47,8 +47,9 @@ class SignUpViewModel @Inject constructor(
 
                     result.isError -> {
                         var messageError: String? = result.getError().message
-                        if (result.getError() is ErrorSource.ServiceError)
+                        if (result.getError() is ErrorSource.ServiceError) {
                             messageError = (result.getError() as ErrorSource.ServiceError).errorMessage
+                        }
                         authUiState.update {
                             AuthUiState(
                                 isError = true,

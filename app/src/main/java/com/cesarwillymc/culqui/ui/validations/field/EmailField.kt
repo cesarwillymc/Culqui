@@ -1,7 +1,7 @@
 package com.cesarwillymc.culqui.ui.validations.field
 
-import com.cesarwillymc.culqui.ui.validations.common.CommonRules
 import com.cesarwillymc.culqui.ui.validations.TextFieldState
+import com.cesarwillymc.culqui.ui.validations.common.CommonRules
 
 /**
  * Created by cesarwillymamanicanaza on 28/07/22.

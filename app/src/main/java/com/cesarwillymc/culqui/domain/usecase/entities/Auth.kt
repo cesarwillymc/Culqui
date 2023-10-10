@@ -9,4 +9,3 @@ package com.cesarwillymc.culqui.domain.usecase.entities
 data class Auth(
     val token: String
 )
-

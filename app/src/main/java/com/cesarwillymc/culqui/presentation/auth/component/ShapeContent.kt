@@ -1,7 +1,6 @@
 package com.cesarwillymc.culqui.presentation.auth.component
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
@@ -15,7 +14,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.cesarwillymc.culqui.R
-import com.cesarwillymc.culqui.ui.components.CustomPrimaryButton
 import com.cesarwillymc.culqui.util.constants.ALPHA_BACKGROUND
 
 /**
