@@ -105,4 +105,5 @@
 
 -keep class com.cesarwillymc.culqui.data.sources.auth.entities.** { *; }
 -keep class com.cesarwillymc.culqui.domain.usecase.entities.** { *; }
+-keep class com.cesarwillymc.culqui.data.settings.network.util.error.** { *; }
 
